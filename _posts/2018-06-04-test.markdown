@@ -1,3 +1,13 @@
+---
+layout: post
+title: 객체지향 테스트
+date: 2017-08-20 13:32:20 +0300
+description: 설명
+img: post-6.jpg # Add image post (optional)
+tags: [Blog, Meditation]
+author: 이종인
+---
+
 # 안녕하세요
 
 * 테스트입니다. 
