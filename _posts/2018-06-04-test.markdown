@@ -5,7 +5,7 @@ date: 2018-12-09
 description: 설명
 img: post-2.jpg
 tags: 회고
-author: 이종인
+author: luis
 ---
 
 블로그 쓰겠다고 다짐한지가 1년
