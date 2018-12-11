@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Restful 하게 get하고 싶어요
-date: 2018-12-09
+date: 2018-12-11
 description: 설명
 img: post-2.jpg
-tags: restful, api
+tags: restful | api
 author: luis
 
 ---
