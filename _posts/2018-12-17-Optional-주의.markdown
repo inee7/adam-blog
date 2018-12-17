@@ -30,39 +30,37 @@ Optional은 태생이 null로 부터 선택(option)하게끔 만들어진  클�
 
 참조예제
 
-₩₩₩
-
 ```java
-public class Address {
-    private final String addressLine; // never null
-    개인 최종 문자열 도시; // never null
-    개인 최종 문자열 우편 번호; // 선택 사항이므로 null 일 수 있습니다.
+  public class Address {
+    private final String addressLine;  // never null
+    private final String city;         // never null
+    private final String postcode;     // optional, thus may be null
 
-    // 생성자는 null이 아닌 필드가 실제로 null이 아닌 것을 보장합니다.
-    // 선택적 필드가 직접 저장 될 수 있습니다. null은 선택적임을 의미합니다.
-    공개 주소 (String addressLine, String city, String postcode) {
-      this.addressLine = Preconditions.chckNotNull (addressLine);
-      this.city = Preconditions.chckNotNull (도시);
-      this.postcode = 우편 번호;
+    // constructor ensures non-null fields really are non-null
+    // optional field can just be stored directly, as null means optional
+    public Address(String addressLine, String city, String postcode) {
+      this.addressLine = Preconditions.chckNotNull(addressLine);
+      this.city = Preconditions.chckNotNull(city);
+      this.postcode = postcode;
     }
 
-    // 일반 게터
-    public String getAddressLine () {return addressLine; }
-    public String getCity () {도시 반환; }
+    // normal getters
+    public String getAddressLine() { return addressLine; }
+    public String getCity() { return city; }
 
-    // 선택적 필드에 대한 특수 게터
-    public 옵션 <String> getPostcode () {
-      return Optional.ofNullable (우편 번호);
+    // special getter for optional field
+    public Optional<String> getPostcode() {
+      return Optional.ofNullable(postcode);
     }
 
-    결과를 찾을 수없는 비즈니스 로직 메소드에 대해 null 대신 optional을 반환합니다.
-    public static 선택적 <address> findAddress (문자열 userInput) {
-      return ... // 찾을 수없는 경우 Optional.empty ()를 반환하여 주소를 찾습니다.
+    // return optional instead of null for business logic methods that may not find a result
+    public static Optional<Address> findAddress(String userInput) {
+      return ... // find the address, returning Optional.empty() if not found
     }
   }
 ```
 
-₩₩₩
+
 
 
 
