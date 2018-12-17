@@ -1,0 +1,79 @@
+---
+layout: post
+title: Optional 쓸때 주의점
+date: 2018-12-17
+description: 설명
+img: post-2.jpg
+tags: optional
+author: luis
+
+
+---
+
+Optional 을 써야할 때와 쓰지 말아야 할 때가 있다. 
+
+Optional로 인스턴스 변수를 사용하지 말아야한다. 
+
+인스턴스 변수는 힙영역에서 생명을 이어가는데 애플리케이션의 인스턴스는 굉장히 오랜기간 동안 살아 있게 된다. 
+
+Optional은 태생이 null로 부터 선택(option)하게끔 만들어진  클래스이다. 따라서 그 선택이 오랫동안 결정되지 않고 있으면 선택장애(?)를 겪게 되는것이다.  
+
+더구나 Optional 필드를 가지게 되면 디버깅에 어렵고 직렬화도 불가하다. 
+
+따라서 인스턴스변수로 Optional클래스로 감싸지 말고 원형을 가지고 getter 리턴에 사용하여 쓰는쪽에서 선택하게 하라. setter에서 null체크를 검사하면 된다.  
+
+이처럼 set메소드, 생성자에서는 Optional을 쓰면 안된다. 
+
+그 밖에 비지니스 로직 반환값으로 Optional을 쓰면 유용하다. 여기서도 역시 메소드 아규먼트로 Optional을 받으면 그 메소드를 쓰는 입장에서는 굉장히 불필요한 두뇌를 사용하게 될것이다. 
+
+
+
+참조예제
+
+₩₩₩
+
+```java
+public class Address {
+    private final String addressLine; // never null
+    개인 최종 문자열 도시; // never null
+    개인 최종 문자열 우편 번호; // 선택 사항이므로 null 일 수 있습니다.
+
+    // 생성자는 null이 아닌 필드가 실제로 null이 아닌 것을 보장합니다.
+    // 선택적 필드가 직접 저장 될 수 있습니다. null은 선택적임을 의미합니다.
+    공개 주소 (String addressLine, String city, String postcode) {
+      this.addressLine = Preconditions.chckNotNull (addressLine);
+      this.city = Preconditions.chckNotNull (도시);
+      this.postcode = 우편 번호;
+    }
+
+    // 일반 게터
+    public String getAddressLine () {return addressLine; }
+    public String getCity () {도시 반환; }
+
+    // 선택적 필드에 대한 특수 게터
+    public 옵션 <String> getPostcode () {
+      return Optional.ofNullable (우편 번호);
+    }
+
+    결과를 찾을 수없는 비즈니스 로직 메소드에 대해 null 대신 optional을 반환합니다.
+    public static 선택적 <address> findAddress (문자열 userInput) {
+      return ... // 찾을 수없는 경우 Optional.empty ()를 반환하여 주소를 찾습니다.
+    }
+  }
+```
+
+₩₩₩
+
+
+
+
+
+참조 : <http://blog.joda.org/2015/08/java-se-8-optional-pragmatic-approach.html>
+
+
+
+Optional 클래스에는 두가지 단점
+
+1) 힙 관리 및 디버깅 스택 추적을 더욱 악화시킵니다. Optional은 wrapper입니다. 만약 하나를 사용하면 두개의 객체 참조를 가질 것입니다. 
+
+2) 직렬화가 가능하지 않는다. 
