@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 클린코드
-date:
+date: 2019-01-04
 description: 설명
 img: post-2.jpg
 tags: 클린코드
