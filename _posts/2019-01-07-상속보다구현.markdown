@@ -1,0 +1,115 @@
+---
+layout: post
+title: 상속보다구현
+date: 2019-01-07
+description: 설명
+img: post-2.jpg
+tags: Effective-Java
+author: luis
+---
+
+상속(inheritance)과 컴포지션(composition)
+상속은 코드 재사용성을 높이는 강력한 기능이지만 항상 최선은 아니다. Effective Java 에서는 상속은 다음과 같은 경우에는 안전하다고 말한다.
+
+동일 개발자가 하위 클래스와 상위 클래스의 통제하는 경우 즉 같은 패키지 내에서 상속은 안전하다. ( 아래 다뤄질 상속의 위험성들을 커버하기 때문이다. )
+
+클래스가 상속을 위해 특별히 설계되었으며, 구조화가 잘 된 클래스를 확장(extends)의 목적으로 상속하는 것도 안전합니다.
+
+상속이 위험한 상황은 서로 다른 패키지에 있으며, 확장을 목적으로 설계되지 않은 일반적인 클래스를 상속받을때 위험하다.
+구체적으로 알아보자.
+
+상속의 위험성
+위에 언급했듯이 서로 다른 패키지에 있으며 확장을 목적으로 설계되지 않았을때의 경우를 전제로 한다.
+
+메서드 호출과 달리, 상속은 캡슐화 원칙을 위반한다.
+하위 클래스는 자신의 상위 클래스의 구체적인 구현내용에 의존하게 된다. 하지만 이때 상위 클래스의 새로운 버전이 릴리즈 되면서 코드가 수정된다면 하위 클래스 코드는 건드리지 않았지만 상위 클래스에 의존하기 때문에 에러가 날 수 있다.
+
+상속의 잘못된 예시로 다음과 같은 코드가 있다.
+```Java
+public class InstrumentedHashSet<E> extends HashSet<E> {
+    private int addCount = 0;
+
+    public InstrumentedHashSet() {
+    }
+
+    public InstrumentedHashSet(int initCap, float loadFactor) {
+        super(initCap, loadFactor);
+    }
+
+    @Override
+    public boolean add(E e) {
+        addCount++;
+        return super.add(e);
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        addCount += c.size();
+        return super.addAll(c);
+    }
+
+    public int getAddCount() {
+        return addCount;
+    }
+
+}
+```
+위 코드는 보기에는 아무런 문제가 없지만 다음처럼 addAll 기능을 수행해보자.
+
+InstrumentedHashSet<String> s = new InstrumentedHashSet<String>();
+
+s.addAll(Arrays.asList("apple","banana","grape");
+이제 우리는 getAddCount를 통해 3을 기대하겠지만 실제 결과는 6이 반환된다. 이유는 HashSet의 addAll() 메서드는 add() 메서드를 통해 구현되어 있다. 즉 addAll을 호출해서 카운트 3을 더하고 또 add가 세번 호출되면서 3이 더해져 결국 6이 된다. HashSet 문서에는 이러한 사실이 명시되어 있지 않다.
+
+해결
+이러한 문제를 해결하는 방법으로 기존 클래스를 상속하는 대신에 상속을 받으려고 했던 클래스에서 기존 객체를 참조하는 private 필드로 두는 것이다. 이러한 방법을 Composition이라고 한다. Composition으로 구현된 클래스는 위에 언급한 위험성을 해결한다.
+
+그리고 새로운 클래스에 포함된 기존 클래스의 인스턴스의 메소드에서는 기존 클래스에 포함된 함수들을 호출하여 결과를 반환해 주는데 이런 방법을 포워딩Forwarding 이라 하고 이 방법을 통해 구현된 메서드는 Forwarding Method 라고 한다.
+
+앞에 문제가 있던 코드를 다음와 같이 Composition을 사용한 Fowarding클래스와 이를 감싸는 Wrapper클래스를 사용하여 상속보다 안전하고 Set의 구현도 원해는 대로 수정 가능하게 코드를 작성할 수 있다.
+
+```Java
+//Wrapper class - uses composition in place of inheritance
+public class InstrumentedSet<E> extends ForwardingSet<E> {  
+     private int addCount = 0;
+
+     public InstrumentedSet(Set<E> s> {
+          super(s);
+     }
+
+     @Override public boolean add(E e) {
+          addCount++;
+          return super.add(e);
+     }
+
+     @Override public boolean addAll(Collection<? extends E> c) {
+          addCount += c.size();
+          return super.addAll(c);
+     }
+
+     public int getAddCount() {
+          return addCount;
+     }
+}
+
+//Reusable forwarding class
+//얘가 Set<E>를 implements하는 이유는 WrapperClass를 Set<E> 타입으로 만들고 싶어서인 것 같다. by sophie
+public class ForwardingSet<E> implements Set<E> {  
+     private final Set<E> s;
+     public ForwardingSet(Set<E> s) { this.s = s; }
+
+     // s의 메소드로 단순 forwarding하는 메소드들은 생략
+}
+```
+
+그렇다면 상속은 언제?
+상속은 하위 자료형이 확실한 경우에만 바람직하다. 즉 Is-A 관계가 성립할 때만 상속을 하는게 바람직하다. 예를들어 Shape라는 상위 클래스와 Circle ,Rect등 각각의 하위 클래스들이 있을때 Rect, Circle는 Shape이다. (Is-A관계 성립) 하지만 반대로 Shape는 Rect, Circle 관계는 성립되지 않는다.
+
+자바 라이브러리에도 이 원칙을 위반한 경우가 많다. 예를들어 Stack은 Vetor가 아니다. (Is-A관계 성립 X)
+
+하지만 Stack은 Vector를 상속하고 있다.
+
+이런 원칙을 위반하면 원래 구현에서 벗어날 수 없게 되며, 성능을 개선하기도 어렵다. 또 내부 구현사항에 접근할 수 있게되는 문제가 있다. 그리고 이런 상속을 하게되면 의미가 혼란스러운 프로그램이 된다.
+
+요약
+요약하자면 상속은 강력한 도구이지만 캡슐화 원칙을 침해하므로 깨지기 쉬운 프로그램이 될 수 있다. 상위 클래스와 하위클래스가 Is-A 관계가 성립할때만 상속을 하는것이 좋고 Is-A관계가 성립해도 상위와 하위클래스가 다른 패키지에 있거나 상속을 위한 상위 클래스가 아니라면 하위 클래스는 깨지기 쉬워 진다. 이런 문제가 있다고 파악 된다면 상속대신 Composition방식을 사용하는게 좋다.
