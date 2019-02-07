@@ -36,7 +36,7 @@ author: luis
 - 함수가 확실히 '한가지' 작업만 하려면 함 수 내 모든 문장의 추상화 수준이 동일 해야한다.
 - 위에서 아래로 코드를 이야기 처럼 읽히면 좋다. 함수 안에 호출되는 함수들은 더 낮은 추상화를 가지게 된다.
 - switch문은 작게 만들기 어렵다. 하지만 각 switch문을 저차원 클래스에 숨기고 절대로 반복하지 않는 방법은 있다.
-```
+```java
 public Money calculatePay(Employee e) throws InvalidEmployeeType{
   switch(e.type) {
     case COMMISSIONED :
@@ -52,7 +52,8 @@ public Money calculatePay(Employee e) throws InvalidEmployeeType{
 함수가 길다. 새직원 추가 될때 마다 길어지고 한가지 작업만 수행하지 않는다. (커미션직원, 시간직원등에 대한 작업), 코드를 변경할 이유가 많다. (SRP위반), 새 직원 생길때 마다 변경되야한다. (OCP위반)
 가장 심각한건 isPayDay나 deliverPay같이 비슷한 코드가 여럿 발생 할 수 있다는 것이다.
 이를 해결하기 위해 switch문을 추상팩토리에 꽁꽁 숨긴다. 팩토리는 switch문으로 적절한 Employee 파생 클래스를 만들어낸다. 이제 calculatePay,isPayDay,deliverPay같은 함수는 Employee인터페이스를 통해 실행된다.
-```
+
+```java
 public abstract class Employee {
   public abstract boolean isPayDay();
   public abstract Money calculatePay();
