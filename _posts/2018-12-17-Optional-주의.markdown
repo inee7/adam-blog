@@ -1,12 +1,6 @@
 ---
-layout: post
-title: Optional 쓸때 주의점
-date: 2018-12-17
-description: 설명
-img: post-2.jpg
-tags: optional
-author: luis
 
+layout: post title: Optional 쓸때 주의점 date: 2018-12-17 description: 설명 img: post-2.jpg tags: optional author: luis
 
 ---
 
@@ -16,17 +10,15 @@ Optional로 인스턴스 변수를 사용하지 말아야한다.
 
 인스턴스 변수는 힙영역에서 생명을 이어가는데 애플리케이션의 인스턴스는 굉장히 오랜기간 동안 살아 있게 된다.
 
-Optional은 태생이 null로 부터 선택(option)하게끔 만들어진  클래스이다. 따라서 그 선택이 오랫동안 결정되지 않고 있으면 선택장애(?)를 겪게 되는것이다.  
+Optional은 태생이 null로 부터 선택(option)하게끔 만들어진 클래스이다. 따라서 그 선택이 오랫동안 결정되지 않고 있으면 선택장애(?)를 겪게 되는것이다.
 
 더구나 Optional 필드를 가지게 되면 디버깅에 어렵고 직렬화도 불가하다.
 
-따라서 인스턴스변수로 Optional클래스로 감싸지 말고 원형을 가지고 getter 리턴에 사용하여 쓰는쪽에서 선택하게 하라. setter에서 null체크를 검사하면 된다.  
+따라서 인스턴스변수로 Optional클래스로 감싸지 말고 원형을 가지고 getter 리턴에 사용하여 쓰는쪽에서 선택하게 하라. setter에서 null체크를 검사하면 된다.
 
 이처럼 set메소드, 생성자에서는 Optional을 쓰면 안된다.
 
 그 밖에 비지니스 로직 반환값으로 Optional을 쓰면 유용하다. 여기서도 역시 메소드 아규먼트로 Optional을 받으면 그 메소드를 쓰는 입장에서는 굉장히 불필요한 두뇌를 사용하게 될것이다.
-
-
 
 참조예제
 
@@ -60,27 +52,12 @@ Optional은 태생이 null로 부터 선택(option)하게끔 만들어진  클�
   }
 ```
 
-
-
-
-
-
-
-참조 : <http://blog.joda.org/2015/08/java-se-8-optional-pragmatic-approach.html>
-
-
+참조 : http://blog.joda.org/2015/08/java-se-8-optional-pragmatic-approach.html
 
 Optional 클래스에는 두가지 단점
 
 1) 힙 관리 및 디버깅 스택 추적을 더욱 악화시킵니다. Optional은 wrapper입니다. 만약 하나를 사용하면 두개의 객체 참조를 가질 것입니다.
 
-<<<<<<< HEAD
-2) 직렬화가 가능하지 않는다. 
-
-기본형 Optional과 이를 사용하지 말아야 하는 이유
-- 스트림처럼 Optional도 기본형으로 특화된 OptionalInt, OptionalLong, OptionalDouble등의 클래스 제공.
-- Optional의 최대 요소 수는 한 개이므로 Optional에서 기본형 특화 클래스로 성능 개선 불가.
-- 기본형 특화 Optional은 map, flatMap, filter등의 메서드를 지원하지 않으므로 사용할 것을 권장하지 않음.
-=======
 2) 직렬화가 가능하지 않는다.
->>>>>>> 5f04af064d69e563d1b26c0ebd1b5ea8c8c3f427
+
+기본형 Optional과 이를 사용하지 말아야 하는 이유 - 스트림처럼 Optional도 기본형으로 특화된 OptionalInt, OptionalLong, OptionalDouble등의 클래스 제공. - Optional의 최대 요소 수는 한 개이므로 Optional에서 기본형 특화 클래스로 성능 개선 불가. - 기본형 특화 Optional은 map, flatMap, filter등의 메서드를 지원하지 않으므로 사용할 것을 권장하지 않음.
