@@ -1,6 +1,16 @@
 ---
+layout: post
+title: Optional 쓸때 주의점
+date: 2018-12-17
+description: 설명
+img: post-2.jpg
+tags: optional
+author: luis
 
-layout: post title: Optional 쓸때 주의점 date: 2018-12-17 description: 설명 img: post-2.jpg tags: optional author: luis
+
+
+
+
 
 ---
 
