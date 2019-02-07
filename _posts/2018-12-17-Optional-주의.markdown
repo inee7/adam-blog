@@ -75,3 +75,8 @@ Optional 클래스에는 두가지 단점
 1) 힙 관리 및 디버깅 스택 추적을 더욱 악화시킵니다. Optional은 wrapper입니다. 만약 하나를 사용하면 두개의 객체 참조를 가질 것입니다. 
 
 2) 직렬화가 가능하지 않는다. 
+
+기본형 Optional과 이를 사용하지 말아야 하는 이유
+- 스트림처럼 Optional도 기본형으로 특화된 OptionalInt, OptionalLong, OptionalDouble등의 클래스 제공.
+- Optional의 최대 요소 수는 한 개이므로 Optional에서 기본형 특화 클래스로 성능 개선 불가.
+- 기본형 특화 Optional은 map, flatMap, filter등의 메서드를 지원하지 않으므로 사용할 것을 권장하지 않음.
