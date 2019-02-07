@@ -58,11 +58,11 @@ public abstract class Employee {
   public abstract Money calculatePay();
   public abstract void deliverPay(Money money);
 }
------
+
 public interface EmployeeFactory {
   public Employee makeEmployee( EmployeeRecord r) throws InvalidEmployeeType;
 }
-------
+
 public class EmployeeFactoryImpl implements EmployeeFactory {
   public Employee makeEmployee(EmployeeRecord r)throws InvalidEmployeeType {
     switch (r.type) {
