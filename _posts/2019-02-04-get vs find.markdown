@@ -1,7 +1,7 @@
 ---
 layout: post
 title: get vs find
-date: 2019-01-04
+date: 2019-02-04
 description: 설명
 img: post-2.jpg
 tags: 네이밍

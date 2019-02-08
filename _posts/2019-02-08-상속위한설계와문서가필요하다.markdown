@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 상속위한설계와문서가필요하다
-date: 2019-01-08
+date: 2019-02-08
 description: 설명
 img: post-2.jpg
 tags: Effective-Java
