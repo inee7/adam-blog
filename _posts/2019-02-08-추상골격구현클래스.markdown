@@ -104,6 +104,7 @@ start(),stop(),process()가 중복된다.
 이처럼 인터페이스는 중복코드를 만들 가능성이 있다.
 
 그래서 추상클래스를 이용해보자.
+
 ```Java
 package com.example.skeletal;
 public abstract class AbstractVending {
@@ -160,6 +161,7 @@ public class VendingManager {
 1. 우선 인터페이스 만들자
 2. 그 인터페이스를 구현하는 추상클래스를 만들어서 공통 메서드를 구현해라.
 3. 구현 클래스에 추상클래스를 상속한 private 이너클래스 (Delegator패턴)를 만들어라. 그리고 그 클래스를 변수로 가지고 포워딩해라.
+
 ```Java
 package com.example.skeletal;
 public interface Ivending {
