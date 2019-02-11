@@ -7,7 +7,7 @@ img: post-2.jpg
 tags: Effective-Java
 author: luis
 ---
-####추상골격구현클래스 (Abstract Skeletal Implementation Class)
+#### 추상골격구현클래스 (Abstract Skeletal Implementation Class)
 인터페이스의 장점과 추상 클래스의 장점을 결합
 
 자판기를 개발한다고 치자.
@@ -15,7 +15,7 @@ author: luis
 그럼 자판기라는 인터페이스를 만들겠지.
 그리고 구현체를 만들겠지.
 
-```Java
+```java
 package com.example.skeletal;
 public interface Ivending {
     void start();
@@ -96,6 +96,7 @@ pay for drinks
 collect drinks
 stop Vending machine
 **/
+
 ```
 
 start(),stop(),process()가 중복된다.
@@ -105,7 +106,7 @@ start(),stop(),process()가 중복된다.
 
 그래서 추상클래스를 이용해보자.
 
-```Java
+```java
 package com.example.skeletal;
 public abstract class AbstractVending {
     public void start()
@@ -162,7 +163,7 @@ public class VendingManager {
 2. 그 인터페이스를 구현하는 추상클래스를 만들어서 공통 메서드를 구현해라.
 3. 구현 클래스에 추상클래스를 상속한 private 이너클래스 (Delegator패턴)를 만들어라. 그리고 그 클래스를 변수로 가지고 포워딩해라.
 
-```Java
+```java
 package com.example.skeletal;
 public interface Ivending {
 void start();
