@@ -1,26 +1,21 @@
-title:  루이스의 데일리 회고
+title:  회고하라 
 email: jongin012@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   회고하는 소프트웨어 엔지니어어 
 permalink: ':title/'
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://inee7/github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://inee7.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author settings
-author: 루이스 # add your name
+author: Luis # add your name
 author-pic: jongin-face.png
-about-author: My name is 루이스. 
+about-author: My name is Luis. 
 
 # Contact links
 email: jongin012@gmail.com  
-phone: # Add your Phone number
-website: # Add your website, do not add http://
-linkedin: # Add your Linkedin handle
+phone: 010-6627-1560
+linkedin: https://www.linkedin.com/in/jongin-lee-6a7512113
 github: inee7@github.com # Add your Github handle
-twitter: # Add your Twitter handle
-facebook: # Add your Facebook handle
-instagram: # Add your Instagram handle
-pinterest: # Add your Pinterest handle
 
 # Newsletter
 mailchimp: # Add your MailChimp form identifier.
