@@ -1,15 +1,15 @@
-title:  회고하라 
+title: 종인's 성장통
 email: jongin012@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  회고하는 소프트웨어 엔지니어어 
+description: > 
+ 훌륭한 개발자가 되기 위해 노력한 부분을 회고한다. 
 permalink: ':title/'
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://inee7.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author settings
-author: Luis # add your name
+author: Jongin # add your name
 author-pic: jongin-face.png
-about-author: My name is Luis. 
+about-author: 훌륭한 개발자 되기 프로젝트 3년 6개월 차 
 
 # Contact links
 email: jongin012@gmail.com  
