@@ -1,0 +1,43 @@
+# SSR vs CSR
+
+서버에서 화면을 렌더링해서 가져오느냐 
+
+서버에서 html만 받아서 js통신으로 데이타 가져와서 클라이언트에서 렌더링 해주느냐
+
+## SSR
+
+![ssr](https://goodgid.github.io/assets/img/posts/ssr_and_csr_1.png)
+
+요청시마다 그려진 페이지를 가져온다 
+
+초기 로딩 속도가 빠름 (JS 다운로드 전까지 어떤 인터렉션도 없지만 사용자 입장에서는 뷰를 빨리 볼 수 있음)
+
+세션으로 서버에서 사용자 정보 관리 
+
+## SPA & CSR 
+
+![csr_spa](https://goodgid.github.io/assets/img/posts/ssr_and_csr_2.png)
+
+서버에서 렌더링 해서 가져오지 않고 HTML 다운 + JS파일 + 각종 리소스 다운을 받은 후 브라우저에서 렌더링한다 (js가 뷰를 만든다)
+
+초기에 뷰를 보는 시간은 느리지만 로딩후에는 필요한 부분가져오기 때문에 빠름
+
+SEO(검색엔진최적화)는 불가능
+
+쿠키통해서만 사용자 정보 관리 
+
+<u>사용자 인터렉션 UX에 좋음</u>
+
+> 전통적인 웹 페이지 방식이 SSR 방식을 사용한 것이고 
+> SPA가 CSR 방식을 사용한 것이다
+
+
+
+
+
+![download](https://goodgid.github.io/assets/img/posts/ssr_and_csr_3.png)
+
+
+
+![mvc](https://goodgid.github.io/assets/img/posts/ssr_and_csr_4.png)
+
