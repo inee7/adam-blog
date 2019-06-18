@@ -3,15 +3,11 @@ layout: post
 title: Restful 하게 get하고 싶어요
 date: 2018-12-11
 description: 설명
-img: post-2.jpg
+img: rest.png
 tags: restful api
-author: luis
+author: jongin
 
 ---
-
-restful api를 지향하는 개발자인데
-
-실무에서 보는 코드들은 그렇지 못한게 많다
 
 최근 당황스러웠던 api는 "post v1/getXXX"라는 api였다
 
@@ -27,9 +23,10 @@ post인데 get이라는 url.. 거기다가 카멜케이스..??
 
 우선 아무리 구글을 두드려봐도 rest api에서 조회는 get이지 post가 아니다 라는 글밖에 없다. stackoverflow는 그런데 okky는 그냥 조회에 대량을 넣고자하는 사람밖에 없더라.. 결국 표준을 깨고 클라이언트 혹은 비지니스개발 속도를 위해 많은 선택을 하는것 같았다.
 
+----
 
 
-이것저것 구글링하다가 REST Api 설계 시 GET의 쿼리스트링 vs 패스파라미터 라는 글을 봤는데
+이것저것 구글링하다가 REST Api 설계 시 GET의 query string vs path parameter 라는 글을 봤는데
 
 최근에 내가 고민했던 부분이다
 
@@ -60,7 +57,3 @@ ex) 특정 게시글을 가져올 경우
 출처:
 
 http://virusworld.tistory.com/129
-
-
-
-better code를 만들고 싶지만 실무에서는 함께 better 한지 뭔지 확인해야하니 피곤할 수 밖에 없다.
