@@ -1,12 +1,8 @@
 ---
 layout: post
 title: Restful 하게 get하고 싶어요
-date: 2018-12-11
-description: 설명
 img: rest.png
 tags: restful api
-author: jongin
-
 ---
 
 최근 당황스러웠던 api는 "post v1/getXXX"라는 api였다
