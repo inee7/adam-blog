@@ -1,13 +1,8 @@
 ---
 layout: post
-title: 클린코드
-date: 2019-02-04
-description: 설명
-img: post-2.jpg
-tags: 클린코드
-author: luis
-
-
+title: 클린코드 정리
+img: clean_code.jpg
+tags: 클린코드 로버트C마틴
 ---
 
 # 깨끗한 코드

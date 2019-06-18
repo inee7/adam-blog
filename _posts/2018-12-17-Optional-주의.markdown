@@ -1,17 +1,8 @@
 ---
 layout: post
 title: Optional 쓸때 주의점
-date: 2018-12-17
-description: 설명
-img: post-2.jpg
-tags: optional
-author: luis
-
-
-
-
-
-
+img: optional.png
+tags: java
 ---
 
 Optional 을 써야할 때와 쓰지 말아야 할 때가 있다.

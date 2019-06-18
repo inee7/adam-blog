@@ -1,7 +1,7 @@
 ---
 layout: post
 title: null체크보다 건강한것은...
-img: post-2.jpg
+img: null.jpg
 tags: java
 
 
