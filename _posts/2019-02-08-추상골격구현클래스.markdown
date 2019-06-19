@@ -1,11 +1,8 @@
 ---
 layout: post
 title: 추상골격구현클래스
-date: 2019-02-08
-description: 설명
-img: post-2.jpg
-tags: Effective-Java
-author: luis
+img: effectivejava.jpeg
+tags: Effective-Java java
 ---
 #### 추상골격구현클래스 (Abstract Skeletal Implementation Class)
 인터페이스의 장점과 추상 클래스의 장점을 결합

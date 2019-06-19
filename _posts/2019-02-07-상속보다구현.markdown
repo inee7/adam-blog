@@ -1,11 +1,8 @@
 ---
 layout: post
-title: 상속보다구현
-date: 2019-02-07
-description: 설명
-img: post-2.jpg
-tags: Effective-Java
-author: luis
+title: 상속보다 구현
+img: effectivejava.jpeg
+tags: Effective-Java java
 ---
 
 상속(inheritance)과 컴포지션(composition)

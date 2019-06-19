@@ -1,11 +1,8 @@
 ---
 layout: post
-title: 상속위한설계와문서가필요하다
-date: 2019-02-08
-description: 설명
-img: post-2.jpg
-tags: Effective-Java
-author: luis
+title: 상속 위한 설계와 문서가 필요하다
+img: effectivejava.jpeg
+tags: Effective-Java java
 ---
 재정의 가능 메서드를 내부적으로 어떻게 사용하지는지(self-use) 반드시 문서에 남겨야 한다.
 (재정의 가능하다는 것은 public 또는 protected로 선언된 비-final 메서드라는 뜻이다.) 관습적으로, 재정의 가능 메서드를 어떤 식으로 호출하는지는 메서드 주석문 마지막에 명시한다. 주석은 “이 구현은”이라는 문구로 시작한다.

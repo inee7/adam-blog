@@ -1,13 +1,8 @@
 ---
 layout: post
 title: get vs find
-date: 2019-02-04
-description: 설명
-img: post-2.jpg
+img: naming.jpg
 tags: 네이밍
-author: luis
-
-
 ---
 Find
 찾는다. nullable ...
