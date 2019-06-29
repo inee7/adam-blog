@@ -1,16 +1,16 @@
 # VueJS
 
- 학습 비용이 작고 ==안정적==이고 ==데이타 바인딩==이 쉽고 ==화면에만 집중==할 수 있음 
+ 학습 비용이 작고 안정적이고 데이타 바인딩이 쉽고 화면에만 집중할 수 있음 
 
 Vue.js는 발음대로 철저히 뷰(View)에 최적화된 프레임워크이다. 컨트롤러 대신 뷰 모델을 가지는 **MVVM(Model-View-ViewModel) 패턴**을 기반으로 디자인되었으며, **컴포넌트(Components)**를 사용하여 재사용이 가능한 UI들을 묶고 뷰 레이어를 정리하는 것을 가장 강력한 기능으로 꼽는다. 또한 **템플릿(Template)** 위주의 개발을 권장
 
-##기존 불편한점
+## 기존 불편한점
 
 JSTL에서 객체 재사용하거나 조작 어려움
 
  
 
-###파라미터로 가지고 있어야 할 변수들은 hidden등으로 데이터 summit을 위한 변수를 가지고 있어야 한다. 
+### 파라미터로 가지고 있어야 할 변수들은 hidden등으로 데이터 summit을 위한 변수를 가지고 있어야 한다. 
 
 ```html
 <input type="hidden" id="pageno" name="pageno" value="${pageno}" />
@@ -28,7 +28,7 @@ $("#product").val($("#product").val());
 
 
 
-###Api 데이터와 화면에서 보여주는 형태의 데이터가 달라서, 데이터의 조작이 필요할때 
+### Api 데이터와 화면에서 보여주는 형태의 데이터가 달라서, 데이터의 조작이 필요할때 
 
 ```jsp
  <c:choose>
@@ -42,7 +42,7 @@ $("#product").val($("#product").val());
 
 
 
-###비동기 호출시 화면이 바뀌는 것을 추적하기 힘듬 
+### 비동기 호출시 화면이 바뀌는 것을 추적하기 힘듬 
 
 ```javascript
 var tmp ="";
@@ -53,7 +53,7 @@ tmp += $caseItem.html();
 
 
 
-###화면을 위한 jstl 코드가 섞여 있음 
+### 화면을 위한 jstl 코드가 섞여 있음 
 
 ```jsp
  <c:choose>
@@ -68,7 +68,7 @@ tmp += $caseItem.html();
 
 
 
-###화면 구조 바뀔 때 모든 selector을 확인해야함 
+### 화면 구조 바뀔 때 모든 selector을 확인해야함 
 
 작은 코드 고치기 위해 전체 코드 이해해야함
 
@@ -91,7 +91,7 @@ $("div.info > span.price").val(20000);
 
 
 
-##Vue.js
+## Vue.js
 
 ```vue
  <div class="info">
@@ -232,7 +232,7 @@ ref) [vuejs경험후기공유](http://tech.javacafe.io/2017/11/14/Vuejs-경험-�
 
 
 
-##환경구축
+## 환경구축
 
 [webpack템플릿으로 vue.js환경 구축](https://itstory.tk/entry/vuecli-Webpack-%ED%85%9C%ED%94%8C%EB%A6%BF%EC%9C%BC%EB%A1%9C-vuejs-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0)
 
