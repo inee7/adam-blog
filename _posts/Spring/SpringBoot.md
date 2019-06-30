@@ -1,11 +1,12 @@
 # SpringBoot
 
-##@SpringBootApplication
-
+## @SpringBootApplication
+- 컴포넌트 검색과 자동 구성 활성화 
 - @Configuration+@ComponentScan+@EnableAuoConfiguration(각종 자동 설정)
 - 스프링 부트 자동 구성이 제공하는 것 이상으로 추가적인 스프링 구성이 필요하면 별도의 @Configuration클래스 작성
 - 하위 모든 패키지에서 엔티티스캐닝을 한다. 
 
+`SpringApplication.run(Application.class, args) // 어플리케이션 부트스트랩`
 
 
 ## @SpringBootTest
