@@ -18,3 +18,31 @@ Docker CMD는 배포할때 ENTRYPOINT는 실행중인 컨테이너에서 실행�
 
 Docker 멀티 스테이지로 이미지 용량 줄일 수 있다. 빌드/실행 나눠서 빌드한 결과에 필요한것만 가져와 실행 
 
+
+
+---
+
+JWT
+
+---
+
+스프링 스큐리티는 다음과 같이 인터페이스에 시큐리티를 걸어 줄수도 있다.
+
+```java
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class MethodSecurityConfig {
+// ...
+}
+public interface BankService {
+
+@PreAuthorize("isAnonymous()")
+public Account readAccount(Long id);
+
+@PreAuthorize("isAnonymous()")
+public Account[] findAccounts();
+
+@PreAuthorize("hasAuthority('ROLE_TELLER')")
+public Account post(Account account, double amount);
+}
+```
+
