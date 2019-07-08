@@ -30,7 +30,7 @@ Eric Evans가 최초 주장?
 
 MVC
 
-:![d0144949_4f636e6412208](/var/folders/mn/9rz6h3nj36n7b8q4txn7sjkw0000gn/T/com.evernote.Evernote/com.evernote.Evernote/WebKitDnD.FIYknS/d0144949_4f636e6412208.png) 
+:![d0144949_4f636e6412208](/Users/jongin/blog/inee7.github.io/assets/img/mvc.png) 
 
 복잡한 로우레벨의 기술을 처리하는 비지니스 모델을 뷰(프리젠테이션)와 분리해냄으로써 개발자와 디자이너 사이의 업무영역을 효율적으로 분할
 
@@ -50,7 +50,7 @@ DDD
 
 **이러한 MVC는 서비스 계층의 중복과 복잡성이 증가함 (SRP, OCP 지키기 힘듬)** 
 
-![d0144949_4f636fa334095](/var/folders/mn/9rz6h3nj36n7b8q4txn7sjkw0000gn/T/com.evernote.Evernote/com.evernote.Evernote/WebKitDnD.rWyioa/d0144949_4f636fa334095.png)
+![d0144949_4f636fa334095](/Users/jongin/blog/inee7.github.io/assets/img/mvc와ddd.png)
 
 MVC의 대량 처리만을 목적으로 하고 있기 때문에 세밀한 상태변화나 디테일한 설정에는 매우 약함.
 

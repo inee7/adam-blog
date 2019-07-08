@@ -105,13 +105,13 @@ Move Field/Method를 통해 한 클래스를 모으거나 새로운 클래서 �
 
 [그림1.]의 간단한 클래스를 보겠습니다. 변화가 예상되는 부분이 보이시나요? 천천히 살펴보도록 하겠습니다.
 
-![img](../assets/FB507306-70F5-4A1F-92E4-53BD53CA8DBE.png)
+![img](../../assets/img/FB507306-70F5-4A1F-92E4-53BD53CA8DBE.png)
 
 [그림1.]SRP적용 전
 
 위 [그림1.]에서 보는 바와 같이 serialNumber는 변화요소라 할 수 없고 단지 고유정보라고 할 수 있습니다. 동종의 다른 클래스와 구분되는 정보라고 할 수 있겠네요. 그리고 price와 Maker, Type, model, backWood, topWood, stringNum 등은 모두 특성 정보군으로 변경이 발생 할 수 있는 부분이라 할 수 있고, 이 부분은 변화 요소로 예상이 됩니다. 따라서 특정 정보군에 변화가 발생하면 항상 해당 클래스를 수정해야 하는 부담이 발생하게 됨으로 이 부분이 SRP적용의 대상이 됩니다.
 
-![img](../assets/484A9C84-0550-4B4A-8CCD-E51DDD3EF0FC.png)
+![img](../../assets/img/484A9C84-0550-4B4A-8CCD-E51DDD3EF0FC.png)
 
 [그림2.]SRP적용후
 
@@ -141,13 +141,13 @@ OCP는 관리가능하고 재사용 가능한 코드를 만드는 기반이며, 
 
 ####iii.적용사례
 
-![img](../assets/A29E06BB-C60F-4F4E-B3FF-51CEDD745B74.png)
+![img](../../assets/img/A29E06BB-C60F-4F4E-B3FF-51CEDD745B74.png)
 
 [그림3.] SRP원리를 적용하여 변화요소를 분리한 클래스
 
 여기서 만약 Guitar외에 바이올린, 첼로, 비올라 등 추가적인 악기들도 다뤄야 하는 요구사항이 있다면...
 
-![img](../assets/620EA756-2581-4B6B-99AD-43E00A1864B4.png)
+![img](../../assets/620EA756-2581-4B6B-99AD-43E00A1864B4.png)
 
 [그림4.]OCP적용전
 
@@ -157,7 +157,7 @@ OCP는 관리가능하고 재사용 가능한 코드를 만드는 기반이며, 
 
 여기서는 추가될 악기들의공통 속성을 모두 담을 수 있는 StringInstrument라는 인터페이스를 생성하겠습니다. 앞으로는 StringInstrument가 이들을 대표하게 될 것입니다. 아래[그림 5.]는 OCP원리가 적용된 다이어그램과 소스를 나타냅니다.
 
-![img](../assets/03925DBE-884C-4973-AE30-92FBCB48B9A9.png)
+![img](../../assets/03925DBE-884C-4973-AE30-92FBCB48B9A9.png)
 
 [그림5.]OCP적용후
 
