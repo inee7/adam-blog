@@ -24,13 +24,13 @@ Old에서는 Major GC(or Full GC) 발생
 
 
 
-![](../assets/gc영역.png)
+![](../../assets/gc영역.png)
 
 
 
 Old 영역에 있는 객체가 Young영역의 객체를 참조하는 경우 해결하기 위해 Old영역에 512바이트의 chunk로 되어있는 카드 테이블이 존재
 
-![](../assets/카드테이블구조.png)
+![](../../assets/카드테이블구조.png)
 
 Young영역의 GC를 실행할 때에는 Old영역에 있는 모든 객체의 참조를 확인하지 않고 , 이 카드 테이블만 뒤져서 GC대상인지 식별.
 
