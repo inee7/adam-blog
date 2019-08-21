@@ -359,3 +359,12 @@ prop을 컴포넌트에게 전달하는 것처럼, 하위 컴포넌트에서 단
   <span slot-scope="{ text }">{{ text }}</span>
 </child>
 ```
+
+
+
+엔터키
+
+```vue
+<input @keyup.enter="submit">
+```
+

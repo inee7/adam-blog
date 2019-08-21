@@ -1,31 +1,54 @@
 # vuetify
 
+##그리드 시스템을 위한 3요소
+
+v-container / v-layout / v-flex
+
+항상 이런 3 계층으로 이루어져야합니다.
+
+`v-container`는 전체 너비를 기준으로 화면에 출력될 컨테이너를 중앙에 배치한다.
+
+ `v-layout`은 섹션을 구분하는데 사용하고 `v-flex`를 포함한다. 
+
+대부분의 경우 `v-layout`의 `row`와 `column`을 주로 사용한다.
+
+ `v-flex`의 내부에는 `div` 태그를 사용해서 필요한 내용을 추가한다.
 
 
-Vuetify는 12개를 컬럼을 사용한 그리드 시스템을 사용한다. 5가지 화면 크기에 따른 유형을 적용할 수 있다.
 
-`v-container`는 전체 너비를 기준으로 화면에 출력될 컨테이너를 중앙에 배치한다. `v-layout`은 섹션을 구분하는데 사용하고 `v-flex`를 포함한다. 대부분의 경우 `v-layout`의 `row`와 `column`을 주로 사용한다. `v-flex`의 내부에는 `div` 태그를 사용해서 필요한 내용을 추가한다.
+레이아웃 요소를 배치 할 땐 `v-app` 속성을 최상위에 사용해야 한다.
 
-### 기본적인 vuetify 예제
 
-아래 예제는 vuetify에서 소개한 예제이다. 레이아웃 요소를 배치 할 땐 `v-app` 속성을 최상위에 사용해야 한다. `v-content`를 사용하면 구성 요소가 동적으로 조정된다.
 
-```html
-<v-app>
-  <v-navigation-drawer app></v-navigation-drawer>
-  <v-toolbar app></v-toolbar>
-  <v-content>
-    <v-container fluid>
-      <router-view></router-view>
-    </v-container>
-  </v-content>
-  <v-footer app></v-footer>
-</v-app>
-```
+Vuetify는 ==12개==를 컬럼을 사용한 그리드 시스템을 사용한다. 5가지 화면 크기에 따른 유형을 적용할 수 있다.
+
+
 
 ### Breakpoints
 
-`xs` < `sm` < `md <`lg`<`xl` 순서로 적용된다. 화면 크기를 기준으로 적용된다.
+`xs` 모바일< `sm`테블릿 < `md`노트북 <`lg`데스크탑<`xl` 순서로 적용된다. 화면 크기를 기준으로 적용된다.
+
+**12가 너비의 맥스**인 것이고(*bootstrap등 다른 프레임도 마찬가지*)
+
+xs12의 경우 600px이하(곧 모바일)에서는 12개를 다 쓰겠다는 것 곧 너비를 다쓴다는 것
+
+xs6로 해두면 12 나누기 6 = 2개
+
+
+
+v-container 전체 너비 사용하려면 fluid 속성 
+
+v-layout 에서 column은 수직, row는 수평으로 나누겠다는 얘기 
+
+v-flex로 섹션 자리 배치 한다 
+
+
+
+v-flex안에 v-layout 넣어 중첩할 수 있다. 
+
+
+
+v-container에 fluid하면 너비 숫자로 하지 않는다 v-flex에서 grow(여분 다 차지)와 shrink(자기 크기로 차지)로 상대 배치 가능하다
 
 ## Typography
 
